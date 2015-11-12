@@ -1,13 +1,144 @@
 <?php
 
-function wordpolymer_register_menu() {
-	register_nav_menus(
-		array(
-			'header-menu' => __( 'Header Menu' ),
-		)
-	);
+if ( ! function_exists( 'wordpolymer_setup' ) ) :
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * Note that this function is hooked into the after_setup_theme hook, which
+ * runs before the init hook. The init hook is too late for some features, such
+ * as indicating support for post thumbnails.
+ *
+ * Create your own wordpolymer_setup() function to override in a child theme.
+ *
+ * @since 1.0
+ */
+function wordpolymer_setup() {
+	/*
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on WordPolymer, use a find and replace
+	 * to change 'wordpolymer' to the name of your theme in all the template files
+	 */
+	load_theme_textdomain( 'wordpolymer', get_template_directory() . '/languages' );
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+	/*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
+	/*
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 */
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 1200, 0, true );
+	// This theme uses wp_nav_menu() in two locations.
+	register_nav_menus( array(
+		'primary' => __( 'Primary Menu', 'wordpolymer' ),
+//		'social'  => __( 'Social Links Menu', 'wordpolymer' ),
+	) );
+	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
+	/*
+	 * Enable support for Post Formats.
+	 *
+	 * See: https://codex.wordpress.org/Post_Formats
+	 */
+	add_theme_support( 'post-formats', array(
+		'aside',
+		'image',
+		'video',
+		'quote',
+		'link',
+		'gallery',
+		'status',
+		'audio',
+		'chat',
+	) );
+	/*
+	 * This theme styles the visual editor to resemble the theme style,
+	 * specifically font, colors, icons, and column width.
+	 */
+	add_editor_style( array( 'css/editor-style.css', wordpolymer_fonts_url() ) );
 }
-add_action( 'init', 'wordpolymer_register_menu' );
+endif; // wordpolymer_setup
+add_action( 'after_setup_theme', 'wordpolymer_setup' );
+
+/**
+ * Registers a widget area.
+ *
+ * @link https://developer.wordpress.org/reference/functions/register_sidebar/
+ *
+ * @since 1.0
+ */
+function wordpolymer_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'Sidebar', 'wordpolymer' ),
+		'id'            => 'sidebar-1',
+		'description'   => __( 'Add widgets here to appear in your sidebar.', 'wordpolymer' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Content Bottom 1', 'wordpolymer' ),
+		'id'            => 'sidebar-2',
+		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'wordpolymer' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Content Bottom 2', 'wordpolymer' ),
+		'id'            => 'sidebar-3',
+		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'wordpolymer' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+}
+add_action( 'widgets_init', 'wordpolymer_widgets_init' );
+
+/**
+ * Enqueues scripts and styles.
+ *
+ * @since 1.0
+ */
+function wordpolymer_scripts() {
+	// Theme stylesheet.
+	wp_enqueue_style( 'wordpolymer-style', get_stylesheet_uri() );
+
+	// Load WebComponents polyfill
+	wp_enqueue_script( 'wordpolymer-webcomponents', get_template_directory_uri() . '/bower_components/webcomponentsjs/webcomponents.js' );
+?>
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-header-panel/core-header-panel.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/core-icons.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/communication-icons.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/device-icons.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-toolbar/core-toolbar.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/font-roboto/roboto.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-tabs/paper-tabs.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-button/paper-button.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-icon-button/paper-icon-button.html">
+<?php
+}
+add_action( 'wp_enqueue_scripts', 'wordpolymer_scripts' );
 
 class wordpolymer_walker_nav_menu extends Walker_Nav_Menu {
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
