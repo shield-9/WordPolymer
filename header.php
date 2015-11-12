@@ -18,7 +18,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php endif; ?>
 	<?php wp_head(); ?>
-	<style shim-shadowdom>
+	<style is="custom-style">
 	body {
 		font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial;
 		color: #333;
@@ -28,7 +28,7 @@
 	paper-toolbar,
 	paper-tabs {
 		text-decoration: none;
-		background-color: #00bcd4;
+		background-color: var(--paper-light-blue-500);
 		color: #fff;
 		box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
 	}
@@ -62,7 +62,7 @@
 <body class="fullbleed layout vertical" unresolved>
 	<paper-header-panel class="flex" mode="waterfall-tall" tall-class="medium-tall">
 		<paper-toolbar class="medium-tall">
-			<div flex><?php bloginfo( 'name' ); ?></div>
+			<div class="flex"><?php bloginfo( 'name' ); ?></div>
 			<?php
 			$description = get_bloginfo( 'description', 'display' );
 			if ( $description || is_customize_preview() ): ?>
