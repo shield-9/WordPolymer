@@ -83,7 +83,7 @@
 			<?php
 			$description = get_bloginfo( 'description', 'display' );
 			if ( $description || is_customize_preview() ): ?>
-			<h2><?php echo description; ?></h2>
+			<h2><?php echo $description; ?></h2>
 			<?php endif; ?>
 
 			<div class="bottom fit" horizontal layout>

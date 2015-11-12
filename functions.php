@@ -72,7 +72,7 @@ function wordpolymer_setup() {
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', wordpolymer_fonts_url() ) );
+//	add_editor_style( array( 'css/editor-style.css', wordpolymer_fonts_url() ) );
 }
 endif; // wordpolymer_setup
 add_action( 'after_setup_theme', 'wordpolymer_setup' );
