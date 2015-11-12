@@ -25,23 +25,23 @@
 		background-color: #E5E5E5;
 	}
 
-	core-header-panel {
+	paper-header-panel {
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
 	}
 
-	core-toolbar h1:before {
+	paper-toolbar h1:before {
 		content: "";
 		display: inline-block;
 		margin-right: -8px;
 	}
 
-	core-toolbar h1 {
+	paper-toolbar h1 {
 		font-size: 1em;
 		font-weight: normal;
 	}
 
-	core-toolbar,
+	paper-toolbar,
 	paper-tabs {
 		text-decoration: none;
 		background-color: #00bcd4;
@@ -49,7 +49,7 @@
 		box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
 	}
 
-	core-toolbar paper-tabs {
+	paper-toolbar paper-tabs {
 		box-shadow: none;
 		-webkit-user-select: none;
 		-moz-user-select: none;
