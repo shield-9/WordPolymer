@@ -131,6 +131,7 @@ function wordpolymer_scripts() {
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/communication-icons.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/device-icons.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/font-roboto/roboto.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-styles/paper-styles.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-header-panel/paper-header-panel.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-toolbar/paper-toolbar.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-tabs/paper-tabs.html">
