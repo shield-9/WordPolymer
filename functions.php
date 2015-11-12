@@ -168,7 +168,7 @@ class wordpolymer_walker_nav_menu extends Walker_Nav_Menu {
 
 		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
 
-		$attributes = ' horizontal center-center layout';
+		$attributes = ' class="horizontal center-center layout"';
 
 		if( in_array('current-menu-item', $classes ) ) {
 			$attributes .= ' active';

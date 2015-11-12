@@ -9,7 +9,7 @@
  * @since Twenty Sixteen 1.0
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,22 +23,6 @@
 		font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial;
 		color: #333;
 		background-color: #E5E5E5;
-	}
-
-	paper-header-panel {
-		overflow: auto;
-		-webkit-overflow-scrolling: touch;
-	}
-
-	paper-toolbar h1:before {
-		content: "";
-		display: inline-block;
-		margin-right: -8px;
-	}
-
-	paper-toolbar h1 {
-		font-size: 1em;
-		font-weight: normal;
 	}
 
 	paper-toolbar,
@@ -76,24 +60,24 @@
 	</style>
 </head>
 <body class="fullbleed layout vertical" unresolved>
-	<paper-header-panel class="flex" mode="waterfall-tall" tallClass="medium-tall">
+	<paper-header-panel class="flex" mode="waterfall-tall" tall-class="medium-tall">
 		<paper-toolbar class="medium-tall">
-			<h1 flex><?php bloginfo( 'name' ); ?></h1>
+			<div flex><?php bloginfo( 'name' ); ?></div>
 			<?php
 			$description = get_bloginfo( 'description', 'display' );
 			if ( $description || is_customize_preview() ): ?>
-			<h2><?php echo $description; ?></h2>
+			<span><?php echo $description; ?></span>
 			<?php endif; ?>
 
-			<div class="bottom fit" horizontal layout>
+			<div class="bottom fit">
 				<?php if ( has_nav_menu( 'primary' ) ) : ?>
 				<?php
 					wp_nav_menu( array(
 							'theme_location' => 'primary',
-							'menu_class'     => 'primary-menu',
+							'menu_class'     => 'primary-menu scrollable',
 							'depth'          => 1,
 							'container'      => false,
-							'items_wrap'     => '<paper-tabs id="%1$s" class="%2$s" flex scrollable link>%3$s</paper-tabs>',
+							'items_wrap'     => '<paper-tabs id="%1$s" class="%2$s">%3$s</paper-tabs>',
 							'walker'         => new wordpolymer_walker_nav_menu(),
 					) );
 				?>
