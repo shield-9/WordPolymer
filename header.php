@@ -76,9 +76,9 @@
 	</style>
 </head>
 <body fullbleed layout vertical unresolved>
-	<core-header-panel flex mode="waterfall-tall" tallClass="medium-tall">
-		<core-toolbar class="medium-tall">
-			<core-icon icon="device:developer-mode"></core-icon>
+	<paper-header-panel flex mode="waterfall-tall" tallClass="medium-tall">
+		<paper-toolbar class="medium-tall">
+			<iron-icon icon="device:developer-mode"></iron-icon>
 			<h1 flex><?php bloginfo( 'name' ); ?></h1>
 			<?php
 			$description = get_bloginfo( 'description', 'display' );
@@ -100,4 +100,4 @@
 				?>
 				<?php endif; ?>
 			</div>
-		</core-toolbar>
+		</paper-toolbar>

@@ -127,12 +127,12 @@ function wordpolymer_scripts() {
 	// Load WebComponents polyfill
 	wp_enqueue_script( 'wordpolymer-webcomponents', get_template_directory_uri() . '/bower_components/webcomponentsjs/webcomponents.js' );
 ?>
-	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-header-panel/core-header-panel.html">
-	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/core-icons.html">
-	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/communication-icons.html">
-	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-icons/device-icons.html">
-	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/core-toolbar/core-toolbar.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/communication-icons.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/iron-icons/device-icons.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/font-roboto/roboto.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-header-panel/paper-header-panel.html">
+	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-toolbar/paper-toolbar.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-tabs/paper-tabs.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-button/paper-button.html">
 	<link rel="import" href="<?php echo get_template_directory_uri(); ?>/bower_components/paper-icon-button/paper-icon-button.html">
