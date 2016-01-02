@@ -78,6 +78,20 @@ endif; // wordpolymer_setup
 add_action( 'after_setup_theme', 'wordpolymer_setup' );
 
 /**
+ * Sets the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ *
+ * @since 1.0
+ */
+function wordpolymer_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'wordpolymer_content_width', 840 );
+}
+add_action( 'after_setup_theme', 'wordpolymer_content_width', 0 );
+
+/**
  * Registers a widget area.
  *
  * @link https://developer.wordpress.org/reference/functions/register_sidebar/
