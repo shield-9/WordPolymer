@@ -59,7 +59,7 @@
 	}
 	</style>
 </head>
-<body class="fullbleed layout vertical" unresolved>
+<body <?php body_class( 'fullbleed layout vertical' ); ?> unresolved>
 	<paper-header-panel class="flex" mode="waterfall-tall" tall-class="medium-tall">
 		<paper-toolbar class="medium-tall">
 			<div class="flex"><?php bloginfo( 'name' ); ?></div>
